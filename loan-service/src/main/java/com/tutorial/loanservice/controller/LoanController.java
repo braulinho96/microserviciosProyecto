@@ -42,4 +42,10 @@ public class LoanController {
         return ResponseEntity.ok(updatedLoan);
     }
 
+    @GetMapping("/pending")
+    public ResponseEntity<List<Loan>> getLoanByRut() {
+        List<Loan> loan = loanService.getPendingLoans();
+        return ResponseEntity.ok(loan);
+    }
+
 }

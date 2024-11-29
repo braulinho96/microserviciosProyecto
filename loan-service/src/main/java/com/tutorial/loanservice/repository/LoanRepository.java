@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface LoanRepository extends JpaRepository<Loan, Long> {
     public List<Loan> findByRut(String rut);
+    List<Loan> findBySolicitudeStateNot(String solicitudeState);
 }

@@ -24,6 +24,13 @@ public class LoanService {
     // Update
     public Loan updateLoanSolicitude(Loan loanSolicitude){ return loanRepository.save(loanSolicitude);}
 
+    // P4. For the solicitude revision
+    public List<Loan> getPendingLoans(){
+        return loanRepository.findBySolicitudeStateNot("E8");
+    }
+
+
+
 
 
 }
