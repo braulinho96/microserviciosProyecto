@@ -17,6 +17,7 @@ public class RegisterService {
     public User getUserByRut(String rut){
         return registerRepository.findByRut(rut);
     }
+
     public User saveUser(User user) {
         if (registerRepository.findByRut(user.getRut()) != null) {
             throw new IllegalArgumentException("The user is already in the database");

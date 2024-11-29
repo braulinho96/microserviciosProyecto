@@ -1,7 +1,7 @@
-package com.tutorial.documentservice.controller;
+package com.tutorial.loanservice.controller;
 
-import com.tutorial.documentservice.entity.Document;
-import com.tutorial.documentservice.service.DocumentService;
+import com.tutorial.loanservice.entity.Document;
+import com.tutorial.loanservice.service.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/document")
+@RequestMapping("/documents")
 public class DocumentController {
 
     @Autowired

@@ -1,12 +1,11 @@
-package com.tutorial.documentservice.service;
+package com.tutorial.loanservice.service;
 
-import com.tutorial.documentservice.entity.Document;
-import com.tutorial.documentservice.repository.DocumentRepository;
+import com.tutorial.loanservice.entity.Document;
+import com.tutorial.loanservice.repository.DocumentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class DocumentService {

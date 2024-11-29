@@ -1,10 +1,10 @@
-package com.tutorial.documentservice;
+package com.tutorial.loanservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DocumentServiceApplicationTests {
+class LoanServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
