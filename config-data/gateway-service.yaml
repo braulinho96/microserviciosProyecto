@@ -22,10 +22,17 @@ spring:
           predicates:
             - Path=/register/**
             
+        # Ruta para el servicio de préstamos
         - id: loan-service
           uri: lb://loan-service
           predicates:
-            - Path=/loans/**/documents/**
+            - Path=/loans/**
+
+        # Ruta separada para el servicio de documentos
+        - id: document-service
+          uri: lb://loan-service
+          predicates:
+            - Path=/documents/**
             
         - id: simulate-service
           uri: lb://simulate-service
