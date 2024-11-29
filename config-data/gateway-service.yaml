@@ -27,7 +27,7 @@ spring:
           predicates:
             - Path=/document/**
             
-        - id: pet-service
-          uri: lb://pet-service
+        - id: simulate-service
+          uri: lb://simulate-service
           predicates:
-            - Path=/pet/**
+            - Path=/simulate/**
