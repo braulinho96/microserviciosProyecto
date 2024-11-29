@@ -25,7 +25,8 @@ spring:
         - id: loan-service
           uri: lb://loan-service
           predicates:
-            - Path=/loans/**/documents/**
+            - Path=/loans/**
+            - Path=/documents/**
             
         - id: simulate-service
           uri: lb://simulate-service
