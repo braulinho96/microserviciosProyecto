@@ -1,6 +1,6 @@
 spring:
   application:
-    name: document-service
+    name: loan-service
   cloud:
     config:
       enabled: true

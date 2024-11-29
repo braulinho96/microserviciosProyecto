@@ -1,4 +1,4 @@
-package com.tutorial.documentservice.entity;
+package com.tutorial.loanservice.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
