@@ -1,5 +1,6 @@
 package com.tutorial.evaluationservice.service;
 
+import com.tutorial.evaluationservice.model.Document;
 import com.tutorial.evaluationservice.model.Loan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -21,6 +22,11 @@ public class EvaluationService {
     public List<Loan> getPendingLoans(){
         List<Loan> pendingLoans = restTemplate.getForObject("http://loan-service/loans/pending", List.class);
         return pendingLoans;
+    }
+
+    public List<Document> getDocumentByIdLoan(Long idLoan){
+        List<Document> documents = restTemplate.getForObject("http://loan-service/documents/" + idLoan, List.class);
+        return documents;
     }
 
     // R1.
@@ -85,6 +91,18 @@ public class EvaluationService {
         }
 
         HttpEntity<Loan> request = new HttpEntity<>(evaluatedLoan);
+        ResponseEntity<Loan> response;
+        response = restTemplate.exchange(
+                "http://loan-service/loans/",
+                HttpMethod.PUT,
+                request,
+                Loan.class
+        );
+        return response.getBody();
+    }
+
+    public Loan updateLoanEvaluation(Loan loanSolicitude){
+        HttpEntity<Loan> request = new HttpEntity<>(loanSolicitude);
         ResponseEntity<Loan> response;
         response = restTemplate.exchange(
                 "http://loan-service/loans/",

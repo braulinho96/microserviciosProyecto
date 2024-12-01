@@ -1,5 +1,6 @@
 package com.tutorial.evaluationservice.controller;
 
+import com.tutorial.evaluationservice.model.Document;
 import com.tutorial.evaluationservice.model.Loan;
 import com.tutorial.evaluationservice.service.EvaluationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/evaluate")
 public class EvaluationController {
@@ -20,6 +20,12 @@ public class EvaluationController {
     @GetMapping("/pending")
     public List<Loan> getPendingLoans() {
         return evaluationService.getPendingLoans();
+    }
+
+    @GetMapping("/documents/{idLoan}")
+    public ResponseEntity<List<Document>> getDocumentByIdLoan(@PathVariable Long idLoan){
+        List<Document> documents = evaluationService.getDocumentByIdLoan(idLoan);
+        return ResponseEntity.ok(documents);
     }
 
     @PostMapping("/R1")
@@ -66,6 +72,12 @@ public class EvaluationController {
         Loan updatedLoan = evaluationService.R7SavingCapacity(loanSolicitude, numberApproved );
         return ResponseEntity.ok(updatedLoan);
     }
+
+    @PutMapping("/update")
+    public Loan updateLoanEvaluation(@RequestBody Loan loanSolicitude){
+        return evaluationService.updateLoanEvaluation(loanSolicitude);
+    }
+
 
 
 }

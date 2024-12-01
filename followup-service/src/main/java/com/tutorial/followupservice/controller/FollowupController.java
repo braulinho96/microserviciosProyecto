@@ -20,13 +20,13 @@ public class FollowupController {
         return ResponseEntity.ok(loan);
     }
 
-    @PostMapping("/cancelLoan")
+    @PutMapping("/cancelLoan")
     public ResponseEntity<Loan> cancelLoan(@RequestBody Loan cancelLoan){
         Loan updatedLoan = followupService.cancelLoan(cancelLoan);
         return ResponseEntity.ok(updatedLoan);
     }
 
-    @PostMapping("/acceptLoan")
+    @PutMapping("/acceptLoan")
     public ResponseEntity<Loan> acceptLoan(@RequestBody Loan acceptedLoan){
         Loan updatedLoan = followupService.acceptLoan(acceptedLoan);
         return ResponseEntity.ok(updatedLoan);
